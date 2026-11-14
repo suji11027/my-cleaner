@@ -11,9 +11,21 @@
 </head>
 <body>
   <header class="top">
-    <h1>엑셀 정리기</h1>
-    <p class="lead">엑셀을 끌어다 놓으면 정해 둔 처방대로 정리하고, 정리본과 바꾼 기록을 내려줍니다.</p>
-    <p class="safe">🔒 넣은 파일은 이 브라우저 안에서만 계산하고, 어디에도 보내지 않습니다.</p>
+    <div class="top-inner">
+      <div class="brand">
+        <span class="mark" aria-hidden="true">
+          <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M3 5h14M3 10h9M3 15h5"/><path d="M12.5 14.5l2 2 3.5-4"/></svg>
+        </span>
+        <div>
+          <h1>엑셀 정리기</h1>
+          <p class="lead">엑셀을 끌어다 놓으면 정해 둔 처방대로 정리하고, 정리본과 바꾼 기록을 내려줍니다.</p>
+        </div>
+      </div>
+      <p class="safe">
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="7" width="10" height="7" rx="1.5"/><path d="M5.5 7V5a2.5 2.5 0 0 1 5 0v2"/></svg>
+        넣은 파일은 이 브라우저 안에서만 계산하고, 어디에도 보내지 않습니다.
+      </p>
+    </div>
   </header>
 
   <main>
@@ -80,5 +92,6 @@
   <script src="lib/xlsx.full.min.js"></script>
   <script src="clean.js"></script>
   <script src="app.js"></script>
+  <script src="fx.js"></script>
 </body>
 </html>

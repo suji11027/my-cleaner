@@ -9,6 +9,7 @@
 ## 파일
 
 - `index.html` · `style.css` · `app.js`: 정리기 화면
+- `fx.js`: 화면 움직임(E안). 꾸미기만 하고 계산·데이터에는 손대지 않는다
 - `clean.js`: 정리 엔진. rules/*.json 의 «작업» 종류만 실행한다
 - `lib/`: SheetJS 0.20.3 (`xlsx.full.min.js`)와 라이선스. 다른 사이트에서 불러오지 않는다
 - `rules/목록.json`: 처방 파일 목록. 처방 파일을 새로 만들면 여기에 더한다
