@@ -1,0 +1,28 @@
+# 배포(Vercel)에 올릴 것만 적는다. 여기 없는 것은 모두 빠진다.
+# 정한 것: 정리기 화면 · rules/ · data/의 지어낸 엑셀
+# 저장소에만 있는 CLAUDE.md · README.md 와 .gitignore · .vercelignore 도 배포에는 빠진다.
+
+# 1) 일단 모두 뺀다
+/*
+
+# 2) 배포할 것만 다시 넣는다
+!/index.html
+!/style.css
+!/app.js
+!/clean.js
+!/lib/
+!/rules/
+!/data/
+
+# 3) data/ 에서는 지어낸 엑셀 하나만
+/data/*
+!/data/입출금관리.xlsx
+
+# 4) 넣은 폴더 안이라도 이런 것은 뺀다
+~$*
+*_정리본.xlsx
+*_정리본.csv
+*_바꾼기록.xlsx
+*_바꾼기록.csv
+.DS_Store
+Thumbs.db

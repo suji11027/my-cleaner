@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- 이 페이지는 같은 사이트의 파일(lib/, rules/)만 불러온다. 다른 곳으로 아무것도 보낼 수 없게 막아 둔다. -->
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; script-src 'self'; style-src 'self'; connect-src 'self'; img-src 'self' data:; object-src 'none'; base-uri 'none'; form-action 'none'">
+  <title>엑셀 정리기</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="top">
+    <h1>엑셀 정리기</h1>
+    <p class="lead">엑셀을 끌어다 놓으면 정해 둔 처방대로 정리하고, 정리본과 바꾼 기록을 내려줍니다.</p>
+    <p class="safe">🔒 넣은 파일은 이 브라우저 안에서만 계산하고, 어디에도 보내지 않습니다.</p>
+  </header>
+
+  <main>
+    <!-- 1. 파일 넣기 -->
+    <section class="card" id="step-file">
+      <h2><span class="num">1</span> 파일 넣기</h2>
+      <label class="drop" id="drop">
+        <input type="file" id="file-input" accept=".xlsx,.xls,.csv">
+        <span class="drop-main">여기에 엑셀 파일을 끌어다 놓거나 눌러서 고르세요</span>
+        <span class="drop-sub">.xlsx · .xls · .csv</span>
+      </label>
+      <div id="file-info" class="hidden"></div>
+    </section>
+
+    <!-- 2. 처방 -->
+    <section class="card hidden" id="step-rules">
+      <h2><span class="num">2</span> 처방</h2>
+      <div id="rules-missing" class="warn hidden">
+        <p><strong>이 파일에 맞는 처방이 없습니다.</strong></p>
+        <p class="muted" id="rules-missing-why"></p>
+        <label class="btn secondary">
+          처방 파일(.json) 고르기
+          <input type="file" id="rules-input" accept=".json,application/json">
+        </label>
+      </div>
+      <div id="rules-view" class="hidden"></div>
+    </section>
+
+    <!-- 3. 정리 -->
+    <section class="card hidden" id="step-clean">
+      <h2><span class="num">3</span> 규칙대로 정리</h2>
+      <button type="button" class="btn" id="run">규칙대로 정리</button>
+      <div id="result" class="hidden"></div>
+    </section>
+
+    <!-- 4. 내려받기 -->
+    <section class="card hidden" id="step-download">
+      <h2><span class="num">4</span> 내려받기</h2>
+      <p class="muted">엑셀 파일(.xlsx)을 권합니다. CSV도 엑셀에서 한글이 깨지지 않게 저장합니다.</p>
+      <div class="row">
+        <button type="button" class="btn" id="dl-clean-xlsx">정리본 (.xlsx)</button>
+        <button type="button" class="btn secondary" id="dl-clean-csv">정리본 (.csv)</button>
+        <button type="button" class="btn" id="dl-log-xlsx">바꾼 기록 (.xlsx)</button>
+        <button type="button" class="btn secondary" id="dl-log-csv">바꾼 기록 (.csv)</button>
+      </div>
+    </section>
+
+    <!-- 5. 정답과 대조 -->
+    <section class="card hidden" id="step-compare">
+      <h2><span class="num">5</span> 정답과 대조 <span class="muted small">(필요할 때만)</span></h2>
+      <p class="muted">정답 파일은 이 사이트에 없습니다. 내 컴퓨터에 있는 정답 파일을 고르면, 이 브라우저 안에서만 비교합니다.</p>
+      <label class="btn secondary">
+        정답 파일 고르기
+        <input type="file" id="answer-input" accept=".xlsx,.xls,.csv">
+      </label>
+      <div id="compare" class="hidden"></div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    엑셀 읽기·쓰기: <a href="lib/LICENSE">SheetJS Community Edition 0.20.3 (Apache-2.0)</a>
+  </footer>
+
+  <script src="lib/xlsx.full.min.js"></script>
+  <script src="clean.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
